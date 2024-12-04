@@ -1,0 +1,1 @@
+print(grid_from_row,grid_from_column)
