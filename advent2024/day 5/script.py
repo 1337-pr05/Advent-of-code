@@ -1,8 +1,6 @@
 def mapping(file):
     with open(file) as f:
         raw = f.readlines()
-    
-    
     mapped = {}
     #this funciton will map all the element with whom would apear first! int : [int]
     for i in raw:
@@ -31,16 +29,12 @@ def check_and_update(mapped,lst_ele):
     
     final = []
     for i in lst_ele:
-        print(i)
         for j in i:
-            print(j)
             if(j in mapped.keys()):
                 valid = True
                 for k in range(len(i)-1,i.index(j),-1):
-                    print("here-2")
-                    print(i[k])
                     if(i[k] in mapped[j] and i.index(j) < i.index(i[k])):
-                        print("here-3")
+                        
                         continue
                     else:
                         valid = False
@@ -55,11 +49,19 @@ def check_and_update(mapped,lst_ele):
             valid = True
         
     return final
-            
+          
+          
+          
+def get_Final(lst_ele):
+    result = 0
+    for i in lst_ele:
+        result += i[len(i) // 2]
+    return result
+  
 mapped = mapping("text.txt")
-print(mapped)
+
 lst_ele = sequence("text2.txt")
-print(lst_ele)
+
 
 final = check_and_update(mapped,lst_ele)
-print(final)
+print("final result :",get_Final(final))
