@@ -1,1 +1,0 @@
-print(grid[x_update][y_update],turtle)
